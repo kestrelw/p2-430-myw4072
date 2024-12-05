@@ -15,7 +15,7 @@ const router = require('./router.js');
 
 const port = process.env.PORT || process.env.NODE_Port || 3000;
 
-const dbURI = process.env.MONGODB_URI || require('../.mongo-connection.js');
+const dbURI = process.env.MONGODB_URI;
 
 mongoose.connect(dbURI).catch((err) => {
   if (err) {
