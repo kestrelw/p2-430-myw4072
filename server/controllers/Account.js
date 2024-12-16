@@ -58,10 +58,37 @@ const signup = async (req, res) => {
   }
 };
 
+const changePassword = async (req, res) => {
+    const { username, oldPass, newPass } = req.body;
+
+    // if (!username || !oldPass || !newPass) {
+    //     return res.status(400).json({ error: 'All fields are required!' });
+    // }
+
+    try {
+      Account.authenticate(username, oldPass, async (err, account) => {
+        if (err || !account) {
+          return res.status(401).json({ error: 'Username or old password is incorrect!' });
+        }
+        
+        const hash = await Account.generateHash(newPass);
+        account.password = hash;
+        await account.save();
+        
+        console.log("met checkpoint account.js controllers");
+        return res.json({ message: 'Password updated successfully!' });
+      });
+    } catch (err) {
+        return res.status(500).json({ error: 'An error occurred while updating the password.' });
+    }
+};
+
+
 module.exports = {
   loginPage,
   // signupPage,
   login,
   logout,
   signup,
+  changePassword,
 };

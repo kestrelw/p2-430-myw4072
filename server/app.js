@@ -35,7 +35,7 @@ redisClient.connect().then(() => {
 
   app.use(helmet());
   app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
-  app.use(favicon(`${__dirname}/../hosted/img/favicon.png`));
+  app.use(favicon(`${__dirname}/../hosted/img/favicon.jpg`));
   app.use(compression());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
@@ -44,7 +44,7 @@ redisClient.connect().then(() => {
     store: new RedisStore({
       client: redisClient,
     }),
-    secret: 'Domo Arigato',
+    secret: 'Star Arigato',
     resave: false,
     saveUninitialized: false,
   }));

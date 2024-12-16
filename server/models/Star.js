@@ -3,18 +3,18 @@ const _ = require('underscore');
 
 const setName = (name) => _.escape(name).trim();
 
-const DomoSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-    set: setName,
-  },
-  age: {
-    type: Number,
-    min: 0,
-    required: true,
-  },
+const StarSchema = new mongoose.Schema({
+  // name: {
+  //   type: String,
+  //   required: true,
+  //   trim: true,
+  //   set: setName,
+  // },
+  // age: {
+  //   type: Number,
+  //   min: 0,
+  //   required: true,
+  // },
   rarity: {
     type: Number,
     min: 1,
@@ -31,11 +31,11 @@ const DomoSchema = new mongoose.Schema({
   },
 });
 
-DomoSchema.statics.toAPI = (doc) => ({
+StarSchema.statics.toAPI = (doc) => ({
   name: doc.name,
   age: doc.age,
   rarity: doc.rarity,
 });
 
-const DomoModel = mongoose.model('Domo', DomoSchema);
-module.exports = DomoModel;
+const StarModel = mongoose.model('Star', StarSchema);
+module.exports = StarModel;
