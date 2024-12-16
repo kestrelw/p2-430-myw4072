@@ -10,7 +10,7 @@ const makeStar = async (req, res) => {
   const starData = {
     // name: req.body.name,
     // age: req.body.age,
-    rarity: req.body.rarity/* ||Math.floor(Math.random() * 5 + 1)*/ ,
+    rarity: req.body.rarity/* ||Math.floor(Math.random() * 5 + 1) */,
     owner: req.session.account._id,
   };
 
@@ -20,7 +20,7 @@ const makeStar = async (req, res) => {
     const newStar = new Star(starData);
     await newStar.save();
     // req.session.star = Star.toAPI(newStar);
-    return res.status(201).json({ /*name: newStar.name, age: newStar.age,*/ rarity: newStar.rarity });
+    return res.status(201).json({ rarity: newStar.rarity });
   } catch (err) {
     console.log(err);
     // if (err.code === 11000) {
@@ -64,10 +64,7 @@ const profilePage = (req, res) => res.render('app');
 
 const changePasswordPage = (req, res) => res.render('app');
 
-const changePassword = (req, res) => {
-  return "hi";
-};
-
+const changePassword = (req, res) => res.render('app');
 
 module.exports = {
   starPage,

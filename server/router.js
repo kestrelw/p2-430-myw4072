@@ -24,7 +24,7 @@ const router = (app) => {
 
   app.get('/history', mid.requiresLogin, controllers.Star.historyPage);
   app.get('/profile', mid.requiresLogin, controllers.Star.profilePage);
-  
+
   app.get('/changepassword', mid.requiresLogin, controllers.Star.changePasswordPage);
   app.post('/changepassword', mid.requiresLogin, controllers.Star.changePassword);
 

@@ -2,7 +2,7 @@ const helper = require('./helper.js');
 const React = require('react');
 const {createRoot} = require('react-dom/client');
 
-const handleLogin = (e) => {
+const handleLogin = (e) => {//login yay
     e.preventDefault();
     helper.hideError();
 
@@ -18,7 +18,7 @@ const handleLogin = (e) => {
     return false;
 };
 
-const handleSignup = (e) => {
+const handleSignup = (e) => {//signup stuff
     e.preventDefault();
     helper.hideError();
 
@@ -41,7 +41,7 @@ const handleSignup = (e) => {
 
 };
 
-const LoginWindow = (props) => {
+const LoginWindow = (props) => {//login html
     return (
         <form id="loginForm"
             name="loginForm"
@@ -59,7 +59,7 @@ const LoginWindow = (props) => {
     );
 };
 
-const SignupWindow = (props) => {
+const SignupWindow = (props) => {//signup html
     return (
         <form id="signupForm"
             name="signupForm"
@@ -85,7 +85,7 @@ const init = () => {
 
     const root = createRoot(document.getElementById('content'));
 
-    loginButton.addEventListener('click', (e) => {
+    loginButton.addEventListener('click', (e) => {//load page clickability
         e.preventDefault();
         root.render( <LoginWindow />);
         return false;
